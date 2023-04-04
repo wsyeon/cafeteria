@@ -48,17 +48,6 @@ const Img = styled.div`
     width: 100%;
     height: 150px;
     overflow: hidden;
-    .ImgT {
-        width: 50%;
-        position: absolute;
-        bottom: 10px;
-        right: 20px;
-    }
-    .ImgB {
-        width: 50%;
-        position: absolute;
-        left: -20px;
-    }
 `;
 
 const Cafeteria = () => {
@@ -89,7 +78,7 @@ const Cafeteria = () => {
 
     return (
         <MenuWrapper>
-            <Img className='ImgT'>
+            <Img>
                 <img src='https://cdn.pixabay.com/photo/2017/01/12/06/26/flowers-1973875__480.png' alt='나무' />
             </Img>
             <Menubar>
@@ -114,7 +103,7 @@ const Cafeteria = () => {
                   </Meuns>
                 )}
             </Menubar>
-            <Img className='ImgB'>
+            <Img>
                 <img src='https://cdn.pixabay.com/photo/2017/01/12/06/26/flowers-1973875__480.png' alt='나무' />
             </Img>
         </MenuWrapper>
