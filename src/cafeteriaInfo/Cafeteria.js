@@ -1,8 +1,65 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-//import styled from 'styled-components';
-import '../common/css/Cafeteria.css';
+import styled from 'styled-components';
+
+const MenuWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: #f8f5f0;
+`;
+
+const Menubar = styled.div`
+    display: flex;
+    height: 100%;
+    width: 95%;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Menu = styled.div`
+    @font-face {
+        font-family: 'KCC-eunyoung';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    font-size: 3.125rem;
+    color: #413f3b;
+    font-family: 'KCC-eunyoung';
+    margin-bottom: 30px;
+`;
+
+const Meuns = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 45%;
+    width: 80%;
+`;
+
+const Img = styled.div`
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    .ImgT {
+        width: 50%;
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+    }
+    .ImgB {
+        width: 50%;
+        position: absolute;
+        left: -20px;
+    }
+`;
 
 const Cafeteria = () => {
     const [data, setData] = useState("");
@@ -31,36 +88,36 @@ const Cafeteria = () => {
     }, [selected, time, selectSchool]);
 
     return (
-        <div className='MenuWrapper'>
-            <div className='Img ImgT'>
+        <MenuWrapper>
+            <Img className='ImgT'>
                 <img src='https://cdn.pixabay.com/photo/2017/01/12/06/26/flowers-1973875__480.png' alt='나무' />
-            </div>
-            <div className='Menubar'>
+            </Img>
+            <Menubar>
                 {selected === '2' ? (
-                    <div className='Menu'>
+                    <Menu>
                         Lunch Menu
-                    </div>
+                    </Menu>
                 ) : (
-                    <div className='Menu'>
+                    <Menu>
                         Dinner Menu
-                    </div>
+                    </Menu>
                 )}
                 {loading && (<div>로딩중</div>)}
                 {data && (
-                  <div className='Menus'>
+                  <Meuns>
                       {data.split("<br/>").map((data, idx)=> (
                           <ul key={idx}>
                               <li>{data}</li>
                               <hr />
                           </ul>
                       ))}
-                  </div>
+                  </Meuns>
                 )}
-            </div>
-            <div className='Img ImgB'>
+            </Menubar>
+            <Img className='ImgB'>
                 <img src='https://cdn.pixabay.com/photo/2017/01/12/06/26/flowers-1973875__480.png' alt='나무' />
-            </div>
-        </div>
+            </Img>
+        </MenuWrapper>
     );
 };
 
