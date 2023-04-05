@@ -62,13 +62,13 @@ const Cafeteria = () => {
         async function info() {
             try {
                 const response = await axios.get(
-                  `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=eb857ecb039143fe8c5a40b3bb6205a4&Type=json&pindex=1&pSize=100&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=${selectSchool}&MMEAL_SC_CODE=${selected}&MLSV_YMD=20230404`
+                  `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=eb857ecb039143fe8c5a40b3bb6205a4&Type=json&pindex=1&pSize=100&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=${selectSchool}&MMEAL_SC_CODE=${selected}&MLSV_YMD=${time}`
                   );
 
                 setData(response.data.mealServiceDietInfo[1].row[0].DDISH_NM);
               } catch (e) {
                 console.log(e);
-                setData("오늘은 급식 없는데?");
+                setData("오늘은 급식이 없습니다.");
               } finally {
                 setLoading(false);
               }
