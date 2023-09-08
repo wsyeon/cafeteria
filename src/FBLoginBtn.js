@@ -1,5 +1,5 @@
 import React from "react";
-import FacebookLogo from "../logo/FacebookLogo";
+import FacebookLogo from "../src/logo/FacebookLogo";
 
 const FBLoginBtn = ({ children, onClick }) => {
   return (
