@@ -5,7 +5,7 @@ import FBLoginBtn from "./FBLoginBtn";
 const App = () => {
   return (
     <FacebookLogin
-      appId={"259323000355849"}
+      appId={"2"}
       onSuccess={(response) => {
         console.log("Login Success!");
         console.log("id: ", response.id);
