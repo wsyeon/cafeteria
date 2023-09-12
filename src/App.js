@@ -1,28 +1,21 @@
 import React from "react";
-import FacebookLogin from "@greatsumini/react-facebook-login";
-import FBLoginBtn from "./FBLoginBtn";
+import AppleSignIn from "react-apple-login";
 
-const App = () => {
+function App() {
   return (
-    <FacebookLogin
-      appId={"2"}
-      onSuccess={(response) => {
-        console.log("Login Success!");
-        console.log("id: ", response.id);
-      }}
-      onFail={(error) => {
-        console.log("Login Failed!");
-        console.log("status: ", error.status);
-      }}
-      onProfileSuccess={(response) => {
-        console.log("Get Profile Success!");
-        console.log("name: ", response.name);
-      }}
-      render={({ onClick }) => (
-        <FBLoginBtn onClick={onClick}>facebook 로그인</FBLoginBtn>
-      )}
-    />
+    <div>
+      <h1>애플 로그인 예제</h1>
+      <AppleSignIn
+        clientId="com.mise.cheryexam" // Apple 개발자 포털에서 생성한 클라이언트 ID로 변경
+        redirectURI="https://www.cheryexam.com/login/api/oauth/callback/apple" // 콜백 URL 설정
+        responseType="code id_token"
+        scope="email name"
+        responseMode="form_post"
+        usePopup={false} // 팝업 사용 여부
+        callback={(res) => console.log(res)}
+      />
+    </div>
   );
-};
+}
 
 export default App;
